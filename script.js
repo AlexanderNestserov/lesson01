@@ -14,8 +14,8 @@ console.log('Cost of dev site' + ' ' + fullPrice + '$');//вывод строк�
 screens = screens.toLowerCase();//перевод строки к нижнему регистру
 //console.log(screens);проверка
 console.log(screens.split(''));//массив всех символов строки переменной screens
-console.log(screens.split(', '));//массив всех слов стоки переменной screens
-console.log(fullPrice * (rollback / 100) + '%');
+console.log(screens.split(', '));//массив всех слов строки переменной screens
+console.log(fullPrice * (rollback / 100) + '%');//откат
 
 
 
