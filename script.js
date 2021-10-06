@@ -22,11 +22,10 @@ while (lang != 'ru' && lang != 'en') {
       console.log(e);
       break;
 }*/ // через switch без new Map; let lang;
-let arr = new Map();
-if (lang == 'ru') {
-   arr.set(lang, r);
-   console.log(arr.get(lang));
-} else {
-   arr.set(lang, e);
-   console.log(arr.get(lang));
+let arr = new Map([
+   ['ru', r],
+   ['en', e]
+]);
+for (let a of arr) {
+   console.log(a);
 }
