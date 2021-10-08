@@ -7,7 +7,9 @@ let service1 = prompt("What another type of service do you want?");
 let servicePrice1 = +prompt("How much will it cost?");
 let service2 = prompt("What another type of service do you want?");
 let servicePrice2 = +prompt("How much will it cost?");
+
 let rollback = 10;
+
 let fullPrice;
 let servicePercentPrice;
 let allServicePrices;
@@ -60,9 +62,6 @@ fullPrice = getFullPrice(screenPrice, allServicePrices);
 servicePercentPrice = getServicePercentPrice(fullPrice, rollback);
 
 console.log(getRollbackMessage(fullPrice));
-
-
-
 
 //console.log(typeof title);
 //console.log(typeof screenPrice);
