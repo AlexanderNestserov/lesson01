@@ -1,9 +1,17 @@
-const title = "Document";
-const screens = "LED";
-let screenPrice = 5;
-let rollback = 1;
-let fullPrice = screenPrice - rollback;
-const adaptive = true;
-alert("Are you ready?");
-console.log(fullPrice);
-console.log("hello");
+'use strict';
+let title = prompt('введите имя функции');
+
+const getEmptyFunc = function (a) {
+   if (a == +a) {
+      alert('введите строку,please');
+   }
+
+   a = a.trim();
+   
+   if (a.length > 30) {
+      a = a.substring(31, -31);
+      a += '...';
+   }
+   return a;
+};
+console.log(getEmptyFunc(title));
