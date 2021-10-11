@@ -14,13 +14,13 @@ let service1;
 let service2;
 
 const isNumber = function (num) {
-   return !isNaN(parseFloat(num)) && isFinite(num) && (num !== 0);
+   return !isNaN(parseFloat(num)) && isFinite(num);
 };
 
 const asking = function () {
    title = prompt("Your project name", "Calculating of layout");
    screens = prompt("Your screens type(Simple,Complex, Interactive", "Simple");
-   do { screenPrice = +prompt("How much does this job cost?"); }
+   do { screenPrice = prompt("How much does this job cost?"); }
    while (!isNumber(screenPrice));
    adaptive = confirm("Do you need an adaptive?");
 };
@@ -32,16 +32,17 @@ const getServicePercentPrice = function (a, b) {
 const getAllServicePrices = function () {
    let sum = 0;
    for (let i = 0; i < 2; i++) {
+      let price = 0;
       if (i === 0) {
          service1 = prompt("What another type of service do you want?");
       } else if (i === 1) {
          service2 = prompt("What another type of service do you want?");
       }
-      do { sum += +prompt("How much will it cost?"); }
-      while (!isNumber(sum));
+      do { price = prompt("How much will it cost?"); }
+      while (!isNumber(price));
+      sum += +price;
    }
    return sum;
-
 };
 
 function getFullPrice(a, b) {
@@ -72,10 +73,10 @@ const getRollbackMessage = function (price) {
 };
 
 asking();
-title = getTitle();
 allServicePrices = getAllServicePrices();
-fullPrice = getFullPrice(screenPrice, allServicePrices);
+fullPrice = getFullPrice(+screenPrice, +allServicePrices);
 servicePercentPrice = getServicePercentPrice(fullPrice, rollback);
+title = getTitle();
 
 showTypeOf(title);
 showTypeOf(screenPrice);
