@@ -22,6 +22,7 @@ const appData = {
       appData.screens = prompt("Your screens type(Simple,Complex, Interactive", "Simple");
       do { appData.screenPrice = +prompt("How much does this job cost?"); }
       while (!appData.isNumber(appData.screenPrice));
+      appData.screenPrice = +appData.screenPrice;
       appData.adaptive = confirm("Do you need an adaptive?");
    },
    getServicePercentPrice: function (a, b) {
@@ -37,13 +38,13 @@ const appData = {
             appData.service2 = prompt("What another type of service do you want?");
          }
          do { price = prompt("How much will it cost?"); }
-         while (!appData.isNumber(sum));
+         while (!appData.isNumber(price));
          sum += +price;
       }
       return sum;
    },
    getFullPrice: function (a, b) {
-      return +a + b;
+      return a + b;
    },
    getTitle: function () {
       return appData.title.trim()[0].toUpperCase() + appData.title.trim().slice(1).toLowerCase();
@@ -65,12 +66,13 @@ const appData = {
    start: function () {
       appData.title = prompt("Your project name", "Calculating of layout");
       appData.screens = prompt("Your screens type(Simple,Complex, Interactive", "Simple");
-      do { appData.screenPrice = +prompt("How much does this job cost?"); }
+      do { appData.screenPrice = prompt("How much does this job cost?"); }
       while (!appData.isNumber(appData.screenPrice));
       appData.adaptive = confirm("Do you need an adaptive?");
+
       appData.allServicePrices = appData.getAllServicePrices();
-      appData.fullPrice = appData.getFullPrice(appData.screenPrice, appData.allServicePrices);
-      appData.servicePercentPrice = appData.getServicePercentPrice(appData.fullPrice, appData.rollback);
+      appData.fullPrice = appData.getFullPrice(+appData.screenPrice, +appData.allServicePrices);
+      appData.servicePercentPrice = appData.getServicePercentPrice(+appData.fullPrice, appData.rollback);
       appData.title = appData.getTitle();
    },
    logger: function () {
