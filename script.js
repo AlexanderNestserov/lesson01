@@ -1,25 +1,36 @@
 'use strict';
-/*let week = ['Sunday', 'Monday', 'Tusday', 'Wednesday', 'Thusday', 'Friday', 'Satarday'];
 
+const week = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
 
-for (let i = 0; week.length > i; i++) {
-
+for (let i = 0, len = week.length; i < len; i++) {
    let html = week[i];
-   if (i == 0) {
+   let now = new Date();
+   let day = week[now.getDay() - 1];
+
+   if (html == day) {
+      html = html.bold();
+      if (i > 4) {
+         html = html.italics();
+      }
+   } else if (i > 4) {
       html = html.italics();
    }
-   wee.innerHTML = html;
-   document.body.appendChild(wee);
+   const p = document.createElement('p');
+   p.innerHTML = html;
+   document.body.appendChild(p);
 }
-let date = new Date();
-let a=alert(date.getDay());*/
-let week = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
-let wee = document.getElementByIdName('wee');
-wee.innerHTML = week.join('<br>');
 
-for (let i = 0; i < week.length; i++) {
-   wee.innerHTML = week[i];
-   if (week[i] == 'Понедельник') {
-     wee. 
-   }
-}
+
+
+
+   // выходные
+
+
+
+
+
+/*let now = new Date();
+let day = week[now.getDay() - 1].bold();
+const p = document.createElement('p');
+p.innerHTML = week[now.getDay() - 1].bold();
+document.body.appendChild(p);*/
